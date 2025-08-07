@@ -1,7 +1,3 @@
-drop database accessData;
-create database accessData;
-use accessData;
-
 CREATE TABLE IF NOT EXISTS book (
     title VARCHAR(32),
     isbn INT PRIMARY KEY,

@@ -3,10 +3,11 @@ package com.khdour;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 
+import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-public class DataSource {
+public class DataSourceConfig {
 
     private static HikariConfig config = new HikariConfig();
     private static HikariDataSource ds;
@@ -20,8 +21,11 @@ public class DataSource {
         
         ds = new HikariDataSource(config);
     }
+    public static DataSource getDataSource() {
+        return ds;
+    }
 
-    private DataSource() {}
+    private DataSourceConfig() {}
 
     public static Connection getConnection() throws SQLException {
         return ds.getConnection();

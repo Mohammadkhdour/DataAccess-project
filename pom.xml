@@ -52,11 +52,17 @@
     <version>11.10.5</version>
 </dependency>
 
-        <dependency>
-        <groupId>org.jdbi</groupId>
-        <artifactId>jdbi3-core</artifactId>
-        <version>3.1.0</version>
-    </dependency>
+<dependency>
+    <groupId>org.flywaydb</groupId>
+    <artifactId>flyway-mysql</artifactId>
+    <version>10.14.0</version> <!-- or match your Flyway core version -->
+</dependency>
+
+<dependency>
+    <groupId>org.jdbi</groupId>
+    <artifactId>jdbi3-core</artifactId>
+    <version>3.49.5</version>
+</dependency>
 
     <!-- MySQL JDBC Driver -->
     <dependency>
@@ -117,7 +123,7 @@
           <artifactId>exec-maven-plugin</artifactId>
           <version>3.1.0</version>
           <configuration>
-              <mainClass>com.khdour.AppTest</mainClass>
+              <mainClass>com.khdour.App</mainClass>
           </configuration>
         </plugin>
       </plugins>
