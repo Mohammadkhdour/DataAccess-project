@@ -1,12 +1,15 @@
 package com.khdour;
 
 import org.jdbi.v3.core.Jdbi;
+import org.jdbi.v3.sqlobject.customizer.Define;
+import org.jdbi.v3.sqlobject.statement.SqlQuery;
+
 import java.util.List;
 import java.util.Optional;
 import javax.sql.DataSource;
 
 
-public class BookDao {
+public class BookDao{
     
      private final Jdbi jdbi;
 
@@ -17,7 +20,7 @@ public class BookDao {
     
     public int insertBook(Book book) {
         return jdbi.withHandle(handle -> 
-            handle.createUpdate("INSERT INTO book (title, isbn, language, author) VALUES (:title, :isbn, :language, :author)")
+            handle.createUpdate("INSERT INTO book (title, isbn, language, author, description) VALUES (:title, :isbn, :language, :author, :description)")
                 .bindBean(book)
                 .execute()
         );
@@ -25,7 +28,7 @@ public class BookDao {
 
     public Optional<Book> findBookByIsbn(int isbn) {
         return jdbi.withHandle(handle -> 
-            handle.createQuery("SELECT title, isbn, language, author FROM book WHERE isbn = :isbn")
+            handle.createQuery("SELECT title, isbn, language, author, description FROM book WHERE isbn = :isbn")
                 .bind("isbn", isbn)
                 .mapToBean(Book.class)
                 .findFirst()
@@ -34,7 +37,7 @@ public class BookDao {
 
     public List<Book> findAllBooks() {
         return jdbi.withHandle(handle -> 
-            handle.createQuery("SELECT title, isbn, language, author FROM book")
+            handle.createQuery("SELECT title, isbn, language, author, description FROM book")
                 .mapToBean(Book.class)
                 .list()
         );
@@ -42,7 +45,7 @@ public class BookDao {
 
     public int updateBook(Book book) {
         return jdbi.withHandle(handle -> 
-            handle.createUpdate("UPDATE book SET title = :title, language = :language, author = :author WHERE isbn = :isbn")
+            handle.createUpdate("UPDATE book SET title = :title, language = :language, author = :author, description = :description WHERE isbn = :isbn")
                 .bindBean(book)
                 .execute()
         );
@@ -55,9 +58,5 @@ public class BookDao {
                 .execute()
         );
     }
-    
-    // Other methods can be added here as needed
 
-    
-    
 }

@@ -4,8 +4,6 @@ import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 
 import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.SQLException;
 
 public class DataSourceConfig {
 
@@ -27,7 +25,4 @@ public class DataSourceConfig {
 
     private DataSourceConfig() {}
 
-    public static Connection getConnection() throws SQLException {
-        return ds.getConnection();
-    }
 }

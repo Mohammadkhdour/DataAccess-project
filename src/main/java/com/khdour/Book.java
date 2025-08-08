@@ -1,14 +1,15 @@
 package com.khdour;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+
 @NoArgsConstructor
 @Data
 @AllArgsConstructor
 public class Book {
     private String title;
+    @NonNull
     private int isbn;
     private String language;
     private String author;
+    private String description;
 }
