@@ -34,6 +34,7 @@ public class App
          SQLDao dao = jdbi.onDemand(SQLDao.class);
          dao.getTitles("book").forEach(b->System.out.println(b.toString()));
          dao.insert(new Book("soul", 1122, "arabic", "sammer","good book"));
+         dao.updateTitle(1122,"good morning");
 
 
          BookDao bookDao = new BookDao(dataSource);

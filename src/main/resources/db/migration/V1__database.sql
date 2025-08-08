@@ -6,8 +6,8 @@ CREATE TABLE IF NOT EXISTS book (
 );
 
 INSERT INTO book (title, isbn, language, author) VALUES
-('The Alchemist', 100001, 'English', 'Paulo Coelho'),
-('One Hundred Years of Solitude', 100002, 'Spanish', 'Gabriel García Márquez'),
-('Crime and Punishment', 100003, 'Russian', 'Fyodor Dostoevsky'),
-('Les Misérables', 100004, 'French', 'Victor Hugo'),
-('The Prophet', 100005, 'Arabic', 'Kahlil Gibran');
+('History', 1001, 'English', 'kareem'),
+('Leo Messi', 1002, 'Spanish', 'walled'),
+('Barcalona', 1003, 'all language', 'the History'),
+('Les Misérables', 1004, 'French', 'Victor Hugo'),
+('The Prophet', 1005, 'Arabic', 'Kahlil Gibran');

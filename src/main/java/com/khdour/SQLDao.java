@@ -23,4 +23,7 @@ public interface SQLDao {
 
       @SqlUpdate("Delete From <table> where isbn > 0")
     int deleteAll(@Define("table") String table);
+
+      @SqlUpdate("Update book set title = :title  where isbn = :isbn")
+      int updateTitle( @Bind("isbn") int isbn, @Bind("title") String title);
 }
