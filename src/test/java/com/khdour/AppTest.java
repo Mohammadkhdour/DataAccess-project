@@ -6,13 +6,6 @@ import java.sql.Connection;
 import java.util.List;
 import java.util.Optional;
 
-import org.junit.jupiter.api.*;
-
-import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.util.List;
-import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 

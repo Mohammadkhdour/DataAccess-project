@@ -1,21 +1,14 @@
 package com.khdour;
 
 import javax.sql.DataSource;
-import java.sql.Connection;
 import org.jdbi.v3.core.Jdbi;
-import java.sql.SQLException;
-import java.util.List;
 import org.jdbi.v3.sqlobject.SqlObjectPlugin;
 
-/**
- * Hello world!
- *
- */
+
 public class App 
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
      // Load configuration
         String url = "jdbc:mysql://localhost:3306/accessData";
         String user = "root";

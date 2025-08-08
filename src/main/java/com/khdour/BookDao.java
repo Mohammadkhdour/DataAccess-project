@@ -1,8 +1,6 @@
 package com.khdour;
 
 import org.jdbi.v3.core.Jdbi;
-import org.jdbi.v3.sqlobject.customizer.Define;
-import org.jdbi.v3.sqlobject.statement.SqlQuery;
 
 import java.util.List;
 import java.util.Optional;
