@@ -11,8 +11,8 @@ public class BookDao{
     
      private final Jdbi jdbi;
 
-       public BookDao(DataSource dataSource) {
-                  this.jdbi = Jdbi.create(dataSource);
+       public BookDao(Jdbi jdbi) {
+                  this.jdbi = jdbi;
 
     }
     

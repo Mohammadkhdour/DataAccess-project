@@ -10,19 +10,25 @@ public class DataSourceConfig {
     private static HikariConfig config = new HikariConfig();
     private static HikariDataSource ds;
 
-    static {
-        config = new HikariConfig("/db/migration/datasource.properties");
-        
-        config.addDataSourceProperty("cachePrepStmts", "true");
-        config.addDataSourceProperty("prepStmtCacheSize", "250");
-        config.addDataSourceProperty("prepStmtCacheSqlLimit", "2048");
-        
+
+//    static {
+//        config = new HikariConfig("/db/migration/datasource.properties");
+//
+//        config.addDataSourceProperty("cachePrepStmts", "true");
+//        config.addDataSourceProperty("prepStmtCacheSize", "250");
+//        config.addDataSourceProperty("prepStmtCacheSqlLimit", "2048");
+//
+//        ds = new HikariDataSource(config);
+//    }
+    public static DataSource getDataSource(String url, String user, String password) {
+        config.setJdbcUrl(url);
+        config.setUsername(user);
+        config.setPassword(password);
         ds = new HikariDataSource(config);
-    }
-    public static DataSource getDataSource() {
         return ds;
     }
 
-    private DataSourceConfig() {}
+    private DataSourceConfig() {
+    }
 
 }

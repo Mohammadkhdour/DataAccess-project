@@ -1,4 +1,5 @@
 package com.khdour;
+import org.jdbi.v3.core.Jdbi;
 import org.junit.jupiter.api.*;
 
 import javax.sql.DataSource;
@@ -27,8 +28,9 @@ public class AppTest {
             
             FlywayMigration.migrateDatabase(url, user, password);
             
-            dataSource = DataSourceConfig.getDataSource();
-            bookDao = new BookDao(dataSource);
+            dataSource = DataSourceConfig.getDataSource(url, user, password);
+            Jdbi jdbi = Jdbi.create(dataSource);
+            bookDao = new BookDao(jdbi);
 
         } catch (Exception e) {
             fail("Failed to set up test database: " + e.getMessage());
