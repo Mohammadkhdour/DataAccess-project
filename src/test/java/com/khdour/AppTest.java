@@ -25,10 +25,10 @@ public class AppTest {
             String url = "jdbc:mysql://localhost:3306/accessData";
             String user = "root";
             String password = "mohammad1234";
+
+            dataSource = DataSourceConfig.getDataSource();
+            FlywayMigration.migrateDatabase(dataSource);
             
-            FlywayMigration.migrateDatabase(url, user, password);
-            
-            dataSource = DataSourceConfig.getDataSource(url, user, password);
             Jdbi jdbi = Jdbi.create(dataSource);
             bookDao = new BookDao(jdbi);
 

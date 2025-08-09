@@ -13,17 +13,17 @@ public class App
 
     public static void main( String[] args )
     {
-     // Load configuration
-        String url = "jdbc:mysql://localhost:3306/accessData";
-        String user = "root";
-        String password = "mohammad1234";
+//     // Load configuration
+//        String url = "jdbc:mysql://localhost:3306/accessData";
+//        String user = "root";
+//        String password = "mohammad1234";
 
 
 
-        // Run Flyway migrations
-        FlywayMigration.migrateDatabase(url, user, password);
+        DataSource dataSource = DataSourceConfig.getDataSource();
 
-        DataSource dataSource = DataSourceConfig.getDataSource(url, user, password);
+        FlywayMigration.migrateDatabase(dataSource);
+
 
 
 
@@ -32,6 +32,7 @@ public class App
 
 
          SQLDao dao = jdbi.onDemand(SQLDao.class);
+         logger.info("titles for books:");
          dao.getTitles("book").forEach(b -> logger.info(b.toString()));
          dao.insert(new Book("soul", 1122, "arabic", "sammer", "good book"));
          dao.updateTitle(1122, "good morning");

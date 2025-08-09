@@ -1,15 +1,17 @@
 package com.khdour;
 import org.flywaydb.core.Flyway;
 
+import javax.sql.DataSource;
+
 public class FlywayMigration {
-    public static void migrateDatabase(String url, String user, String password) {
+    public static void migrateDatabase(DataSource dataSource) {
 
             System.out.println("Starting Flyway migration...");
-            System.out.println("Database URL: " + url);
             System.out.println("Migration location: classpath:db/migration");
-            
+
+
             Flyway flyway = Flyway.configure()
-                .dataSource(url, user, password)
+                .dataSource(dataSource)
                 .locations("classpath:db/migration")
                 .baselineOnMigrate(true)
                 .validateOnMigrate(true)
@@ -17,6 +19,7 @@ public class FlywayMigration {
                 .load();
 
             flyway.clean();
+
             // Run migration
             flyway.migrate();
             
