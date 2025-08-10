@@ -5,7 +5,6 @@ This task is designed to teach and demonstrate modern data access patterns in Ja
 ## Objectives
 
 1. **Database Configuration**
-   - Learn how to configure database connections using a properties file.
    - Use **HikariCP** for efficient connection pooling.
 
 2. **Database Migrations**
@@ -33,7 +32,7 @@ This task is designed to teach and demonstrate modern data access patterns in Ja
 ## Task Breakdown
 
 ### Step 1: Database Configuration
-- Configure `datasource.properties` with MySQL connection details.
+- define the connection details as constant variable in app class.
 - Implement `DataSourceConfig.java` to use HikariCP for connection pooling.
 
 ### Step 2: Database Migrations
@@ -79,7 +78,7 @@ src/
 │   │   └── FlywayMigration.java    # Migration management
 │   └── resources/
 │       └── db/migration/
-│           ├── datasource.properties      # Database connection config
+│           ├── R__updateDatabase.sql      # repeatable flyway migration script
 │           ├── V1__database.sql          # Initial schema
 │           └── V2__add_column_description.sql  # Schema evolution
 └── test/
