@@ -14,13 +14,13 @@ public class App
     public static void main( String[] args )
     {
 //     // Load configuration
-//        String url = "jdbc:mysql://localhost:3306/accessData";
-//        String user = "root";
-//        String password = "mohammad1234";
+        String url = "jdbc:mysql://localhost:3306/accessData";
+        String user = "root";
+        String password = "mohammad1234";
 
 
 
-        DataSource dataSource = DataSourceConfig.getDataSource();
+        DataSource dataSource = DataSourceConfig.getDataSource(url,user,password);
 
         FlywayMigration.migrateDatabase(dataSource);
 
@@ -51,6 +51,7 @@ public class App
         logger.info(b.toString()));
 
         logger.info("Number of books: " + bookDao.findAllBooks().size());
+
 
         
     }

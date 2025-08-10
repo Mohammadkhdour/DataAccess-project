@@ -26,7 +26,7 @@ public class AppTest {
             String user = "root";
             String password = "mohammad1234";
 
-            dataSource = DataSourceConfig.getDataSource();
+            dataSource = DataSourceConfig.getDataSource(url,user,password);
             FlywayMigration.migrateDatabase(dataSource);
             
             Jdbi jdbi = Jdbi.create(dataSource);
